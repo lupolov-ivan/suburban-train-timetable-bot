@@ -1,0 +1,5 @@
+server.port: 8080
+telegrambot:
+  username: 'ivanlia_bot'
+  token: '780177221:AAETBt4O9rnwr4k4LMqMN2ERcbdVXxULzEE'
+  webHookPath: 'https://28ac0d4edd64.ngrok.io'

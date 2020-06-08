@@ -21,6 +21,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
+	implementation ('org.telegram:telegrambots-spring-boot-starter:4.8') {
+		exclude group: 'org.slf4j', module: 'slf4j-api'
+	}
+
 	implementation 'org.jsoup:jsoup:1.13.1'
 
 	compileOnly 'org.projectlombok:lombok'
