@@ -18,7 +18,7 @@ public class WebHookController {
 
     @PostMapping
     public BotApiMethod<?> onUpdateReceived(@RequestBody Update update) {
-        log.info("New request: '{}'"+ update.getMessage().getText());
+        log.info("New request: '{}'", update.getMessage().getText());
         return bot.onWebhookUpdateReceived(update);
     }
 }
