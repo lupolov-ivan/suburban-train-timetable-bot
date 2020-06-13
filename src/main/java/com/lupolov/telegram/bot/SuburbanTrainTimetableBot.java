@@ -26,7 +26,12 @@ public class SuburbanTrainTimetableBot extends TelegramWebhookBot {
 
     @Override
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
-        return sendRawTimetable(update);
+        var sendMessage = new SendMessage();
+        sendMessage.setChatId(update.getMessage().getChatId());
+        sendMessage.setText("Clear");
+        return sendMessage;
+
+        //return sendRawTimetable(update);
     }
 
     private SendMessage sendRawTimetable(Update update) {
