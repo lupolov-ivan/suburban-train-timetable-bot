@@ -2,15 +2,16 @@ package com.lupolov.telegram.uz.parser;
 
 import com.lupolov.telegram.model.TimetableEntry;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.time.Clock;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -57,12 +58,12 @@ public class Parser {
 
         var url = template + sid1 + sid2;
 
-        Document doc = Jsoup.connect(url).get();
+        var doc = Jsoup.connect(url).get();
 
-        Elements tableRows1 = doc.getElementsByClass("on");
-        Elements tableRows2 = doc.getElementsByClass("onx");
+        var tableRows1 = doc.getElementsByClass("on");
+        var tableRows2 = doc.getElementsByClass("onx");
 
-        Elements timetable = Stream.concat(
+        var timetable = Stream.concat(
                                         tableRows1.stream(),
                                         tableRows2.stream())
                                             .filter(element -> element.attr("style").contains("CURSOR:pointer"))

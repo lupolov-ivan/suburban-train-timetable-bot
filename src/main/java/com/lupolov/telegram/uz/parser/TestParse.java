@@ -1,7 +1,5 @@
 package com.lupolov.telegram.uz.parser;
 
-import org.jsoup.nodes.Document;
-
 import java.io.IOException;
 
 public class TestParse {
