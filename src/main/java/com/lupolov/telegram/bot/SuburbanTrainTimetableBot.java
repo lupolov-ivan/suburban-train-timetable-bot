@@ -4,6 +4,7 @@ import com.lupolov.telegram.model.TimetableEntry;
 import com.lupolov.telegram.uz.parser.Parser;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import static com.lupolov.telegram.util.TableEmoji.*;
 
+@Slf4j
 @Getter
 @Setter
 public class SuburbanTrainTimetableBot extends TelegramWebhookBot {
@@ -34,19 +36,26 @@ public class SuburbanTrainTimetableBot extends TelegramWebhookBot {
         sendMessage.setChatId(update.getMessage().getChatId());
 
         var params = update.getMessage().getText().split(" > ");
-        var from = params[0].trim();
-        var to = params[1].trim();
 
         try {
-            var entries = parser.getTimetableByStation(from, to);
 
-            if (entries.isEmpty()) {
-                sendMessage.setText(NEUTRAL_FACE + " Не знайдено маршрутів за вказаними параметрами");
+            if (params.length == 2) {
+                var from = params[0].trim();
+                var to = params[1].trim();
+
+                var entries = parser.getTimetableByStation(from, to);
+
+                if (entries.isEmpty()) {
+                    sendMessage.setText(NEUTRAL_FACE + " Не знайдено маршрутів за вказаними параметрами");
+                } else {
+                    sendMessage.setText(prettyPrintRows(entries));
+                }
             } else {
-                sendMessage.setText(prettyPrintRows(entries));
+                sendMessage.setText(NEUTRAL_FACE + " Невірний формат, запиту, пам'ятайте лише українська. Приклад: `Одеса - Головна > Кремидівка`");
             }
         } catch (IOException e) {
             sendMessage.setText(ERROR + " Під час пошуку розкладу відбулася помилка, спробуйте змінити параметри, або повторіть запит пізніше.");
+            log.error("Parsing ERROR");
             e.printStackTrace();
         }
 
