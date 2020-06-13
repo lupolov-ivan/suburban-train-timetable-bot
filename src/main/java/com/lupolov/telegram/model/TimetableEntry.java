@@ -14,7 +14,7 @@ public class TimetableEntry {
     private LocalTime departure;
     private LocalTime arrival;
     private LocalTime travelTime;
-    private Integer distance;
+    private Double distance;
     private LocalDate fromRelevance;
     private LocalDate toRelevance;
 

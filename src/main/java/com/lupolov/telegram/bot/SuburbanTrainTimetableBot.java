@@ -52,7 +52,7 @@ public class SuburbanTrainTimetableBot extends TelegramWebhookBot {
             } else {
                 sendMessage.setText(NEUTRAL_FACE + " Невірний формат, запиту, пам'ятайте лише українська. Приклад: `Одеса - Головна > Кремидівка`");
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             sendMessage.setText(ERROR + " Під час пошуку розкладу відбулася помилка, спробуйте змінити параметри, або повторіть запит пізніше.");
             log.error("Parsing ERROR");
             e.printStackTrace();

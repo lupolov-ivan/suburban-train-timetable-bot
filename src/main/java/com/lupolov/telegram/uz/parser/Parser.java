@@ -46,7 +46,7 @@ public class Parser {
         return nameToId;
     }
 
-    public List<TimetableEntry> getTimetableByStation(String from, String to) throws IOException {
+    public List<TimetableEntry> getTimetableByStation(String from, String to) throws Exception {
 
         Map<String, String> nameToId = getAllStation();
 
@@ -80,7 +80,7 @@ public class Parser {
             entry.setRoute(extText(rows[2]));
             entry.setDeparture(LocalTime.parse(extText(rows[4])));
             entry.setArrival(LocalTime.parse(extText(rows[5])));
-            entry.setDistance(Integer.parseInt(extText(rows[8])));
+            entry.setDistance(Double.parseDouble(extText(rows[8])));
             entry.setFromRelevance(LocalDate.parse(extText(rows[9])));
             entry.setToRelevance(LocalDate.parse(extText(rows[10])));
 
