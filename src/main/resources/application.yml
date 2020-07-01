@@ -3,3 +3,7 @@ telegrambot:
   username: 'ivanlia_bot'
   token: '780177221:AAETBt4O9rnwr4k4LMqMN2ERcbdVXxULzEE'
   webHookPath: 'https://uaz-suburban-timetable.herokuapp.com/'
+localeTag: uk-UA
+logging:
+  level:
+    root: info

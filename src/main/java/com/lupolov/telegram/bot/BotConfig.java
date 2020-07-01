@@ -1,4 +1,4 @@
-package com.lupolov.telegram.bot.config;
+package com.lupolov.telegram.bot;
 
 import lombok.Getter;
 import lombok.Setter;

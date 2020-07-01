@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.lupolov'
-version = '0.0.1-SNAPSHOT'
+version = '2.0.0-SNAPSHOT'
 sourceCompatibility = '11'
 targetCompatibility = '11'
 
@@ -29,7 +29,9 @@ dependencies {
 	implementation 'org.jsoup:jsoup:1.13.1'
 
 	compileOnly 'org.projectlombok:lombok'
+
 	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 	implementation 'com.vdurmont:emoji-java:5.1.1'
 
