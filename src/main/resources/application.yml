@@ -2,7 +2,7 @@ server.port: 8080
 telegrambot:
   username: 'ivanlia_bot'
   token: '780177221:AAETBt4O9rnwr4k4LMqMN2ERcbdVXxULzEE'
-  webHookPath: 'https://998d60561851.ngrok.io'
+  webHookPath: 'https://suburban-train-timetable-bot.herokuapp.com/'
 localeTag: uk-UA
 logging:
   level:
