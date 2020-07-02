@@ -131,7 +131,7 @@ public class TimetableSearchHandler implements UpdateHandler {
                     timetableEntries = timetableService.getTimetableByStation(requestData.getDepartureStationId(),
                             requestData.getArrivalStationId());
                     if (timetableEntries.isEmpty()) {
-                        replyToUser = messageService.getReplyMessage(chatId, "reply.notFoundTimetable", MAN_SHRUGGING.toString());
+                        replyToUser = messageService.getReplyMessage(chatId, "reply.notFoundTimetable", NEUTRAL_FACE.toString());
                     } else {
                         replyToUser = getAndFormatSearchTimetableResult(chatId, timetableEntries);
                     }

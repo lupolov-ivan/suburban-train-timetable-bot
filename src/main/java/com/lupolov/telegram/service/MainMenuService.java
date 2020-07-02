@@ -9,18 +9,12 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.lupolov.telegram.utils.Emojis.MAG;
-import static com.lupolov.telegram.utils.Emojis.NEUTRAL_FACE;
-
 @Service
 public class MainMenuService {
 
-    public SendMessage getMainMenuMessage(final long chatId, final String textMessage) {
-        final ReplyKeyboardMarkup replyKeyboardMarkup = getMainMenuKeyboard();
-        final SendMessage mainMenuMessage =
-                createMessageWithKeyboard(chatId, textMessage, replyKeyboardMarkup);
-
-        return mainMenuMessage;
+    public SendMessage getMainMenuMessage(final long chatId, String textMessage) {
+        final var replyKeyboardMarkup = getMainMenuKeyboard();
+        return createMessageWithKeyboard(chatId, textMessage, replyKeyboardMarkup);
     }
 
     private ReplyKeyboardMarkup getMainMenuKeyboard() {

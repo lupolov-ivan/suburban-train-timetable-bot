@@ -1,5 +1,6 @@
 package com.lupolov.telegram.service;
 
+import com.lupolov.telegram.utils.Emojis;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -24,5 +25,9 @@ public class ReplyMessageService {
 
     public String getReplyText(String replyText, Object... args) {
         return localeMessageService.getMessage(replyText, args);
+    }
+
+    public String getEmojiReplyText(String replyText, Emojis emoji) {
+        return localeMessageService.getMessage(replyText, emoji);
     }
 }

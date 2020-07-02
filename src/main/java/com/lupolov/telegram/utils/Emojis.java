@@ -20,8 +20,7 @@ public enum Emojis {
     UA_FLAG(EmojiParser.parseToUnicode(":ua:")),
     POINT_UP(EmojiParser.parseToUnicode(":point_up:")),
     WARNING(EmojiParser.parseToUnicode(":warning:")),
-    NERD_FACE(EmojiParser.parseToUnicode(":nerd_face:")),
-    MAN_SHRUGGING(EmojiParser.parseToUnicode(":man_shrugging:"));
+    NERD_FACE(EmojiParser.parseToUnicode(":nerd_face:"));
 
     private String emojiName;
 
