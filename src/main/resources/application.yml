@@ -2,7 +2,7 @@ server.port: 8080
 telegrambot:
   username: 'ivanlia_bot'
   token: '780177221:AAETBt4O9rnwr4k4LMqMN2ERcbdVXxULzEE'
-  webHookPath: 'https://uaz-suburban-timetable.herokuapp.com/'
+  webHookPath: 'https://998d60561851.ngrok.io'
 localeTag: uk-UA
 logging:
   level:

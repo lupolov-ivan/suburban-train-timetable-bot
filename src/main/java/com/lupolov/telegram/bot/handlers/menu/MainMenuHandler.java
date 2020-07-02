@@ -10,7 +10,6 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import static com.lupolov.telegram.bot.BotState.SHOW_MAIN_MENU;
-import static com.lupolov.telegram.utils.Emojis.NERD_FACE;
 
 @Component
 @RequiredArgsConstructor
@@ -22,7 +21,7 @@ public class MainMenuHandler implements UpdateHandler {
     @Override
     public SendMessage handle(Update update) {
         var chatId = update.getMessage().getChatId();
-        return mainMenuService.getMainMenuMessage(chatId, messageService.getReplyText("reply.mainMenu.welcomeMessage", NERD_FACE.toString()));
+        return mainMenuService.getMainMenuMessage(chatId, messageService.getReplyText("reply.mainMenu.welcomeMessage"));
     }
 
     @Override
