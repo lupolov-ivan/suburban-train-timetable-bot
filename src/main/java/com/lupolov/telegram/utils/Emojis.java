@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum Emojis {
-    MAG(EmojiParser.parseToUnicode(":mag:")),
     STATION(EmojiParser.parseToUnicode(":station:")),
     SCHEDULE(EmojiParser.parseToUnicode(":calendar:")),
     ROUTE(EmojiParser.parseToUnicode(":repeat:")),
@@ -19,8 +18,7 @@ public enum Emojis {
     WRITING_HAND(EmojiParser.parseToUnicode(":writing_hand:")),
     UA_FLAG(EmojiParser.parseToUnicode(":ua:")),
     POINT_UP(EmojiParser.parseToUnicode(":point_up:")),
-    WARNING(EmojiParser.parseToUnicode(":warning:")),
-    NERD_FACE(EmojiParser.parseToUnicode(":nerd_face:"));
+    WARNING(EmojiParser.parseToUnicode(":warning:"));
 
     private String emojiName;
 

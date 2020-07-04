@@ -55,6 +55,7 @@ public class TimetableService {
 
         return entries;
     }
+
     private String extText(Object object) {
         return ((Element) object).text();
     }

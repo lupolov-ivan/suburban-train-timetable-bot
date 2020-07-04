@@ -1,4 +1,4 @@
-package com.lupolov.telegram.bot.handlers.trainsearch;
+package com.lupolov.telegram.model;
 
 import lombok.Data;
 
