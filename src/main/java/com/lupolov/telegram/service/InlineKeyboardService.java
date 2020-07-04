@@ -12,9 +12,9 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class StationListMenuService {
+public class InlineKeyboardService {
 
-    public SendMessage sendInlineKeyboardMessage(long chatId, String messageText, List<Station> stations) {
+    public SendMessage getStationListInlineKeyboardMessage(long chatId, String messageText, List<Station> stations) {
 
         SendMessage sendMessage = new SendMessage();
 

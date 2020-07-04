@@ -1,6 +1,6 @@
 package com.lupolov.telegram.bot;
 
-import com.lupolov.telegram.cache.BotStateContext;
+import com.lupolov.telegram.bot.state.BotState;
 import com.lupolov.telegram.cache.UserDataCache;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-import static com.lupolov.telegram.bot.BotState.*;
+import static com.lupolov.telegram.bot.state.BotState.*;
 
 @Component
 @Slf4j
@@ -23,14 +23,18 @@ public class TelegramFacade {
         SendMessage replyMessage = null;
 
         if (update.hasCallbackQuery()) {
-            log.info("New callbackQuery from User: {} with data: {}", update.getCallbackQuery().getFrom().getUserName(),
+            log.info("New callbackQuery from User: {} with data: {}",
+                    update.getCallbackQuery().getFrom().getUserName(),
                     update.getCallbackQuery().getData());
+
         }
 
         Message message = update.getMessage();
-        if (message != null && message.hasText()) {
+        if (update.hasMessage() && message.hasText()) {
             log.info("New message from User: {}, chatId {}, with test: {}",
-                    message.getFrom().getUserName(), message.getChatId(), message.getText());
+                    update.getMessage().getFrom().getUserName(),
+                    update.getMessage().getChatId(),
+                    update.getMessage().getText());
         }
         replyMessage = handleInputData(update);
 
@@ -41,7 +45,7 @@ public class TelegramFacade {
         var message = update.getMessage();
         var inputData = "";
         var userId = -1;
-        if (message != null) {
+        if (update.hasMessage()) {
             inputData = message.getText();
             userId = message.getFrom().getId();
         }
@@ -57,7 +61,7 @@ public class TelegramFacade {
                 botState = SHOW_MAIN_MENU;
                 break;
             case "Пошук розкладу":
-                botState = TRAINS_SEARCH;
+                botState = ASK_STATION_DEPART;
                 break;
             case "Інформація про бота":
                 botState = SHOW_ABOUT_BOT;

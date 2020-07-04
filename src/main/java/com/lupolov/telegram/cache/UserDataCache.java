@@ -1,7 +1,7 @@
 package com.lupolov.telegram.cache;
 
-import com.lupolov.telegram.bot.BotState;
-import com.lupolov.telegram.bot.handlers.trainsearch.TrainSearchRequestData;
+import com.lupolov.telegram.bot.state.BotState;
+import com.lupolov.telegram.model.TrainSearchRequestData;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -19,6 +19,7 @@ public class UserDataCache {
 
     public BotState getCurrentBotStateByUserId(int userId) {
         var botState = userToBotState.get(userId);
+
         if (botState == null) {
             botState = BotState.SHOW_MAIN_MENU;
         }
