@@ -52,8 +52,8 @@ public class ShowSearchResultHandler implements BotStateHandler {
                 reply =  messageService.getReplyMessage(chatId, "reply.notFoundTimetable", NEUTRAL_FACE.toString());
             } else {
                 reply =  getAndFormatSearchTimetableResult(chatId, timetableEntries);
-                userDataCache.setBotStateForUser(userId, SHOW_MAIN_MENU);
             }
+            userDataCache.setBotStateForUser(userId, SHOW_MAIN_MENU);
 
         } catch (Exception e) {
             log.error("Parser error\n", e);

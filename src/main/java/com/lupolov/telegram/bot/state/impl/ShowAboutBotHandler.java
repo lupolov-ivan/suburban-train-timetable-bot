@@ -2,6 +2,7 @@ package com.lupolov.telegram.bot.state.impl;
 
 import com.lupolov.telegram.bot.state.BotState;
 import com.lupolov.telegram.bot.state.BotStateHandler;
+import com.lupolov.telegram.cache.UserDataCache;
 import com.lupolov.telegram.service.ReplyMessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import static com.lupolov.telegram.bot.state.BotState.SHOW_ABOUT_BOT;
+import static com.lupolov.telegram.bot.state.BotState.SHOW_MAIN_MENU;
 import static com.lupolov.telegram.utils.Emojis.UA_FLAG;
 
 
@@ -18,10 +20,13 @@ import static com.lupolov.telegram.utils.Emojis.UA_FLAG;
 public class ShowAboutBotHandler implements BotStateHandler {
 
     private final ReplyMessageService messageService;
+    private final UserDataCache userDataCache;
 
     @Override
     public SendMessage handleMessage(Message message) {
         var chatId = message.getChatId();
+        var userId = message.getFrom().getId();
+        userDataCache.setBotStateForUser(userId, SHOW_MAIN_MENU);
         return messageService.getReplyMessage(chatId, "reply.mainMenu.aboutMessage", UA_FLAG.toString());
     }
 
