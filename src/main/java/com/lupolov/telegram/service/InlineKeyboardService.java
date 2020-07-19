@@ -52,6 +52,10 @@ public class InlineKeyboardService {
         var elements = document.getElementsByTag("i");
         var infoText = elements.get(0).wholeText();
 
+        if (infoText.length() < 4) {
+            return "";
+        }
+
         var trimTail = infoText.substring(0,infoText.length() - 4);
         return "("+ trimTail +".)";
     }
