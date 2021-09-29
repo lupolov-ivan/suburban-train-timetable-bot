@@ -1,7 +1,7 @@
 server.port: 8080
 telegrambot:
-  username: 'SuburbanTrainTimetableBot'
-  token: '1300149746:AAGbFTSpEomZ0ZxEnG8Pp4OL3kN1vMURy4k'
+  username: ${BOT_USERNAME}
+  token: ${BOT_TOKEN}
   webHookPath: 'https://suburban-train-timetable-bot.herokuapp.com/'
 localeTag: uk-UA
 logging:
